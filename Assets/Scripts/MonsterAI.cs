@@ -10,7 +10,7 @@ public class MonsterAI : MonoBehaviour
     public GameObject monsterPrefab;
     public GameObject player;
 
-    public float monsterSpeed = 0.02f;
+    public float monsterSpeed;
     public float distance;
 
     public bool isChasing;
@@ -51,7 +51,7 @@ public class MonsterAI : MonoBehaviour
         {
             isChasing = false;
             isAlive = false;
-            monster.SetActive(false);
+            Destroy(monster);
             StartCoroutine(SpawnMonster());
         }  
     }
@@ -66,17 +66,16 @@ public class MonsterAI : MonoBehaviour
 
         if (randomSpawnPoint == 1)
         {
-            monster.transform.position = spawnPoint1.transform.position;
+            monster = Instantiate(monsterPrefab, spawnPoint1.transform.position, Quaternion.identity);
             monster.transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (randomSpawnPoint == 2)
-        {
-            monster.transform.position = spawnPoint2.transform.position;
-            monster.transform.localScale = new Vector3(-1, 1, 1);
-        }
+            isAlive = true;
 
-        monster.SetActive(true);
-        isAlive = true;
+        }
+        if (randomSpawnPoint == 2)
+        {
+            monster = Instantiate(monsterPrefab, spawnPoint2.transform.position, Quaternion.identity);
+            monster.transform.localScale = new Vector3(-1, 1, 1);
+            isAlive = true;
+        }
     }
-    
 }
