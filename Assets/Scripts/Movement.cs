@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public StaminaBar stamBar;
     public float stamina;
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
     public bool isSprinting = false;
+    public Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        stamBar = GetComponent<StaminaBar>();
     }
 
     void Update()
@@ -32,6 +36,28 @@ public class Movement : MonoBehaviour
         {
             stamina = 150;
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(moveVelocity.x));
+
+        if(Mathf.Abs(moveVelocity.x) > 0)
+        {
+            animator.SetBool("IsSprinting", isSprinting);
+        }
+        else
+        {
+            animator.SetBool("IsSprinting", false);
+        }
+
+
+        if (moveVelocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (moveVelocity.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
     }
 
     void FixedUpdate()
