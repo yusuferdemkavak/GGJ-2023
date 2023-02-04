@@ -9,16 +9,18 @@ public class MonsterAI : MonoBehaviour
     public GameObject monster;
     public GameObject player;
 
-    public float monsterSpeed = 0.01f;
+    public float monsterSpeed = 0.02f;
     public float distance;
 
     public bool isChasing;
+    public bool isAlive;
 
-    int randomSpawnPoint;
+    public int randomSpawnPoint;
 
     void Start()
     {
         monster.SetActive(false);
+        isAlive = false;
         StartCoroutine(SpawnMonster());
     }
 
@@ -26,7 +28,10 @@ public class MonsterAI : MonoBehaviour
     {
         distance = Vector3.Distance(player.transform.position, monster.transform.position);
 
-        monster.transform.position = Vector2.MoveTowards(monster.transform.position, player.transform.position, monsterSpeed);
+        if (isAlive == true)
+        {
+            monster.transform.position = Vector2.MoveTowards(monster.transform.position, player.transform.position, monsterSpeed);
+        }
 
         if (distance <= 8 && distance > 6)
         {
@@ -35,16 +40,17 @@ public class MonsterAI : MonoBehaviour
         }
         else if (distance <= 6 && distance > 3)
         {
-            monsterSpeed = 0.03f;
+            monsterSpeed = 0.035f;
         }
         else if (distance <= 3)
         {
-            monsterSpeed = 0.04f;
+            monsterSpeed = 0.045f;
         }
         
         if(distance >= 10 && isChasing == true)
         {
             isChasing = false;
+            isAlive = false;
             monster.SetActive(false);
             StartCoroutine(SpawnMonster());
         }  
@@ -52,20 +58,25 @@ public class MonsterAI : MonoBehaviour
 
     public IEnumerator SpawnMonster()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(5);
 
         isChasing = false;
+        monsterSpeed = 0.02f;
         randomSpawnPoint = Random.Range(1, 3);
 
         if (randomSpawnPoint == 1)
         {
             monster.transform.position = spawnPoint1.transform.position;
+            monster.transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (randomSpawnPoint == 2)
+        if (randomSpawnPoint == 2)
         {
             monster.transform.position = spawnPoint2.transform.position;
+            monster.transform.localScale = new Vector3(-1, 1, 1);
         }
-        
+
         monster.SetActive(true);
+        isAlive = true;
+        
     }
 }
