@@ -7,6 +7,7 @@ public class MonsterAI : MonoBehaviour
     public GameObject spawnPoint1;
     public GameObject spawnPoint2;
     public GameObject monster;
+    public GameObject monsterPrefab;
     public GameObject player;
 
     public float monsterSpeed = 0.02f;
@@ -19,7 +20,6 @@ public class MonsterAI : MonoBehaviour
 
     void Start()
     {
-        monster.SetActive(false);
         isAlive = false;
         StartCoroutine(SpawnMonster());
     }
@@ -69,7 +69,7 @@ public class MonsterAI : MonoBehaviour
             monster.transform.position = spawnPoint1.transform.position;
             monster.transform.localScale = new Vector3(1, 1, 1);
         }
-        if (randomSpawnPoint == 2)
+        else if (randomSpawnPoint == 2)
         {
             monster.transform.position = spawnPoint2.transform.position;
             monster.transform.localScale = new Vector3(-1, 1, 1);
@@ -77,6 +77,6 @@ public class MonsterAI : MonoBehaviour
 
         monster.SetActive(true);
         isAlive = true;
-        
     }
+    
 }
