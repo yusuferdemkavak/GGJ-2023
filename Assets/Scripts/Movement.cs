@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(moveVelocity.x));
 
-        if(Mathf.Abs(moveVelocity.x) > 0)
+        if(Mathf.Abs(moveVelocity.x) > 5)
         {
             animator.SetBool("IsSprinting", isSprinting);
         }
@@ -72,7 +72,7 @@ public class Movement : MonoBehaviour
 
         if (isSprinting && stamina >= 1)
         {
-            speed = 7f;
+            speed = 8f;
             stamina -= 1;
         }
         else if (isSprinting == false && stamina < 150 && stamina > 1)
