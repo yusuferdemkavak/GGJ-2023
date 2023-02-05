@@ -58,6 +58,12 @@ public class Movement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && gameObject.GetComponent<Inventory>().fruitAmount > 0)
+        {
+            gameObject.GetComponent<Inventory>().fruitAmount -= 1;
+            stamina += 50;
+        }
+
     }
 
     void FixedUpdate()
@@ -79,6 +85,14 @@ public class Movement : MonoBehaviour
         {
             speed = 5f;
             stamina += 0.5f;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Monster")
+        {
+            animator.SetBool("IsAlive", false);
+            Destroy(gameObject, 1f);
         }
     }
 }

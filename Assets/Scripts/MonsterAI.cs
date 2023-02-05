@@ -17,6 +17,7 @@ public class MonsterAI : MonoBehaviour
     public bool isAlive;
 
     public int randomSpawnPoint;
+    public int monsterAmount;
 
     void Start()
     {
@@ -52,30 +53,33 @@ public class MonsterAI : MonoBehaviour
             isChasing = false;
             isAlive = false;
             Destroy(monster);
+            monsterAmount -= 1;
             StartCoroutine(SpawnMonster());
         }  
     }
 
     public IEnumerator SpawnMonster()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
 
         isChasing = false;
         monsterSpeed = 0.02f;
         randomSpawnPoint = Random.Range(1, 3);
 
-        if (randomSpawnPoint == 1)
+        if (randomSpawnPoint == 1 && monsterAmount == 0)
         {
             monster = Instantiate(monsterPrefab, spawnPoint1.transform.position, Quaternion.identity);
             monster.transform.localScale = new Vector3(1, 1, 1);
             isAlive = true;
+            monsterAmount += 1;
 
         }
-        if (randomSpawnPoint == 2)
+        else if (randomSpawnPoint == 2  && monsterAmount == 0)
         {
             monster = Instantiate(monsterPrefab, spawnPoint2.transform.position, Quaternion.identity);
             monster.transform.localScale = new Vector3(-1, 1, 1);
             isAlive = true;
+            monsterAmount += 1;
         }
     }
 }
