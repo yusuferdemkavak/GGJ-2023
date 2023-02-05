@@ -15,10 +15,16 @@ public class UIManager : MonoBehaviour
     public GameObject Settings;
     public GameObject Credits; 
     public GameObject MainMenu;
+    public GameObject gameOverText;
+    public GameObject winningText;
+    public GameObject losingText;
+
 
     public GameObject emptyBucket;
     public GameObject fullBucket;
     public Text fruitAmountText;
+
+    public bool didWon;
 
     public int slotNumber = 0;
 
@@ -80,12 +86,12 @@ public class UIManager : MonoBehaviour
 
     public void OnClickMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     public void OnClickPlay()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(1);
     } 
 
     public void OnClickSettings()
@@ -110,5 +116,24 @@ public class UIManager : MonoBehaviour
     {
         Credits.SetActive(false);
         MainMenu.SetActive(true);
+    }
+
+    public void OnClickRestart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void GameOver()
+    {
+        gameOverText.SetActive(true);
+
+        if(didWon == true)
+        {
+            losingText.SetActive(false);
+        }
+        else if(didWon == false)
+        {
+            winningText.SetActive(false);
+        }
     }
 }

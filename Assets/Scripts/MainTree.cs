@@ -42,7 +42,7 @@ public class MainTree : MonoBehaviour
         {
             treePhase = 3;
         }
-        else if (timesWatered == 2)
+        else if (timesWatered == 9)
         {
             treePhase = 4;
             timesWatered = 0;
@@ -62,6 +62,7 @@ public class MainTree : MonoBehaviour
         {
             treePhase3.SetActive(false);
             treePhase4.SetActive(true);
+            ui.GetComponent<UIManager>().didWon = true;
             StartCoroutine(lightning.GetComponent<Lightning>().LightningFlash());
             treePhase = 0;
         }

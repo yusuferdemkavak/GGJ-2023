@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
 {
     public GameObject lightning;
 
+    public GameObject ui;
+
     public int minutesLeft = 0;
     public int secondsLeft = 10;
 
@@ -26,6 +28,7 @@ public class Timer : MonoBehaviour
 
         if (minutesLeft <= 0 && secondsLeft <= 0)
         {
+            ui.GetComponent<UIManager>().didWon = false;
             StartCoroutine(lightning.GetComponent<Lightning>().LightningFlash());
         }
     }

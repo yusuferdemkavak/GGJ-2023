@@ -11,6 +11,9 @@ public class Lightning : MonoBehaviour
     public GameObject mCamera;
     public GameObject inventory;
     public GameObject staminaBar;
+    public GameObject winningText;
+    public GameObject losingText;
+    public GameObject gameOverText;
     public GameObject ui;
 
     public Image lightning;
@@ -35,6 +38,7 @@ public class Lightning : MonoBehaviour
         player.transform.position = new Vector3(0, -2, 0);
         mCamera.transform.position = new Vector3(0, 0f, -10);
         lightning.CrossFadeAlpha(1, 0, false);
+        ui.GetComponent<UIManager>().GameOver();
         yield return new WaitForSeconds(0.2f);
         lightning.CrossFadeAlpha(0, 0.3f, false);
         yield return new WaitForSeconds(5);

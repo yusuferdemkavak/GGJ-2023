@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody2D>();
         stamBar = GetComponent<StaminaBar>();
     }
@@ -93,6 +94,8 @@ public class Movement : MonoBehaviour
         if (other.gameObject.tag == "Monster")
         {
             animator.SetBool("IsAlive", false);
+            ui.GetComponent<UIManager>().didWon = false;
+            ui.GetComponent<UIManager>().GameOver();
             Destroy(gameObject, 1f);
         }
     }
