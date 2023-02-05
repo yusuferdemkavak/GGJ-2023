@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private Vector2 moveVelocity;
     public bool isSprinting = false;
     public Animator animator;
+    public GameObject ui;
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class Movement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && gameObject.GetComponent<Inventory>().fruitAmount > 0)
+        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && gameObject.GetComponent<Inventory>().fruitAmount > 0 && ui.GetComponent<UIManager>().slotNumber == 0)
         {
             gameObject.GetComponent<Inventory>().fruitAmount -= 1;
             stamina += 50;

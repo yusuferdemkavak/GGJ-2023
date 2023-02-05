@@ -22,6 +22,7 @@ public class MonsterAI : MonoBehaviour
     void Start()
     {
         isAlive = false;
+        isChasing = false;
         StartCoroutine(SpawnMonster());
     }
 
@@ -34,18 +35,26 @@ public class MonsterAI : MonoBehaviour
             monster.transform.position = Vector2.MoveTowards(monster.transform.position, player.transform.position, monsterSpeed);
         }
 
-        if (distance <= 8 && distance > 6)
+        if (distance > 10)
+        {
+            monsterSpeed = 0.1f;
+        }
+        else if (distance <= 10 && distance > 8)
         {
             monsterSpeed = 0.02f;
+        }
+        else if (distance <= 8 && distance > 6)
+        {
+            monsterSpeed = 0.03f;
             isChasing = true;
         }
         else if (distance <= 6 && distance > 3)
         {
-            monsterSpeed = 0.035f;
+            monsterSpeed = 0.04f;
         }
         else if (distance <= 3)
         {
-            monsterSpeed = 0.045f;
+            monsterSpeed = 0.05f;
         }
         
         if(distance >= 10 && isChasing == true)
@@ -53,14 +62,14 @@ public class MonsterAI : MonoBehaviour
             isChasing = false;
             isAlive = false;
             Destroy(monster);
-            monsterAmount -= 1;
+            monsterAmount = 0;
             StartCoroutine(SpawnMonster());
         }  
     }
 
     public IEnumerator SpawnMonster()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(7.5f);
 
         isChasing = false;
         monsterSpeed = 0.02f;
