@@ -10,8 +10,8 @@ public class Timer : MonoBehaviour
 {
     public GameObject lightning;
 
-    public int minutesLeft = 10;
-    public int secondsLeft = 0;
+    public int minutesLeft = 0;
+    public int secondsLeft = 10;
 
     public Text timerText;
 

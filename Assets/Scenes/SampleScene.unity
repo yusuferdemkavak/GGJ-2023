@@ -580,7 +580,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 48214701}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818698812}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnClickQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &48214701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7948,7 +7960,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1033181689}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7993,7 +8005,7 @@ MonoBehaviour:
     is on its way to destroy this beautiful island with everything in it. Thankfully
     the tree next to this sign is not like any other tree and has the ability to
     grow insanely fast and spread its roots to large areas. If you bring this tree
-    some water, it will grow up and starts spreading its roots in no time and i you
+    some water, it will grow up and start spreading its roots in no time and i you
     were quick enough, roots of this tree will hold...
 --- !u!222 &300211704
 CanvasRenderer:
@@ -14371,7 +14383,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 514820420}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818698812}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnClickResume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &514820420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15890,7 +15914,7 @@ RectTransform:
   m_Children:
   - {fileID: 1147935894}
   m_Father: {fileID: 1033181689}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16187,7 +16211,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1033181689}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16227,12 +16251,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ...the island against the tornade and protect it. Your mission is to bring
+  m_Text: ...the island against the tornado and protect it. Your mission is to bring
     water from the edge of the island to this tree to help it grow. But it will not
     be as easy as you might think because a ghost by the name "Kevin" knows about
     this tree and recently arrived to the island to get rid of anything that could
     help the tree grow. He might seem quite friendly but do not trust him. Water
-    the tree and protect out island. Don't forget to be careful!
+    the tree and protect our island. Don't forget to be careful!
 --- !u!222 &723256802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21529,7 +21553,7 @@ RectTransform:
   m_Children:
   - {fileID: 2023082930}
   m_Father: {fileID: 1033181689}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22084,7 +22108,7 @@ RectTransform:
   - {fileID: 916357219}
   - {fileID: 1767409772}
   m_Father: {fileID: 1033181689}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22188,7 +22212,6 @@ RectTransform:
   - {fileID: 1227857}
   - {fileID: 2098366908}
   - {fileID: 72910436}
-  - {fileID: 1385698502}
   - {fileID: 1033181689}
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -23727,6 +23750,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1385698502}
   - {fileID: 739754520}
   - {fileID: 689805231}
   - {fileID: 300211702}
@@ -23734,7 +23758,7 @@ RectTransform:
   - {fileID: 817910077}
   - {fileID: 1853686707}
   m_Father: {fileID: 818698810}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -40775,7 +40799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1385698502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40787,13 +40811,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 818698810}
-  m_RootOrder: 4
+  m_Father: {fileID: 1033181689}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.97753906, y: 0.6816406}
+  m_SizeDelta: {x: 506.0608, y: 138.70721}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1385698503
 MonoBehaviour:
@@ -55033,7 +55057,7 @@ RectTransform:
   - {fileID: 1924878548}
   - {fileID: 236924849}
   m_Father: {fileID: 1033181689}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -55201,7 +55225,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1891712987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 818698812}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OnClickMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891712987
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject Inventory;
     public GameObject Timer;
+    public GameObject Settings;
+    public GameObject Credits; 
+    public GameObject MainMenu;
 
     public GameObject emptyBucket;
     public GameObject fullBucket;
@@ -44,6 +48,7 @@ public class UIManager : MonoBehaviour
             pauseMenu.SetActive(true);
             Inventory.SetActive(false);
             Timer.SetActive(false);
+            Time.timeScale = 0;
         }
 
         fruitAmountText.text = player.GetComponent<Inventory>().fruitAmount.ToString();
@@ -62,6 +67,48 @@ public class UIManager : MonoBehaviour
 
     public void OnClickResume()
     {
-        
+        pauseMenu.SetActive(false);
+        Inventory.SetActive(true);
+        Timer.SetActive(true);
+        Time.timeScale = 1;
+    }
+
+    public void OnClickQuit()
+    {
+        Application.Quit();
+    }
+
+    public void OnClickMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnClickPlay()
+    {
+        SceneManager.LoadScene("SampleScene");
+    } 
+
+    public void OnClickSettings()
+    {
+        Settings.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void OnClickCredits()
+    {
+        Credits.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void OnClickBackInSettings()
+    {
+        Settings.SetActive(false);
+        MainMenu.SetActive(true);
+    }
+
+    public void OnClickBackInCredits()
+    {
+        Credits.SetActive(false);
+        MainMenu.SetActive(true);
     }
 }

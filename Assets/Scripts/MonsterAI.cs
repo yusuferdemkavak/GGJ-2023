@@ -15,6 +15,7 @@ public class MonsterAI : MonoBehaviour
 
     public bool isChasing;
     public bool isAlive;
+    public bool isNearSea;
 
     public int randomSpawnPoint;
     public int monsterAmount;
@@ -75,7 +76,7 @@ public class MonsterAI : MonoBehaviour
         monsterSpeed = 0.02f;
         randomSpawnPoint = Random.Range(1, 3);
 
-        if (randomSpawnPoint == 1 && monsterAmount == 0)
+        if (randomSpawnPoint == 1 && monsterAmount == 0 && isNearSea == false)
         {
             monster = Instantiate(monsterPrefab, spawnPoint1.transform.position, Quaternion.identity);
             monster.transform.localScale = new Vector3(1, 1, 1);
@@ -83,7 +84,7 @@ public class MonsterAI : MonoBehaviour
             monsterAmount += 1;
 
         }
-        else if (randomSpawnPoint == 2  && monsterAmount == 0)
+        else if (randomSpawnPoint == 2  && monsterAmount == 0 && isNearSea == false)
         {
             monster = Instantiate(monsterPrefab, spawnPoint2.transform.position, Quaternion.identity);
             monster.transform.localScale = new Vector3(-1, 1, 1);

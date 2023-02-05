@@ -56,7 +56,7 @@ public class Bush : MonoBehaviour
 
     public IEnumerator GrowFruit()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(20);
         doesHaveFruit = true;
     }
 }
